@@ -1,0 +1,16 @@
+.DS_Store
+Scripts/chef/.chef/*/
+**/.vs/
+**/obj/
+**/bin/
+
+
+# Chef
+Scripts/chef/.chef/*.pem
+Scripts/chef/.chef/*/
+Scripts/chef/.delivery
+Berksfile.lock
+Scripts/chef/.zero-knife.rb
+Scripts/chef/Policyfile.lock.json
+Scripts/chef/berks-cookbooks/
+
