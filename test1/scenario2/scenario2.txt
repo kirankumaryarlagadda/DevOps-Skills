@@ -1,0 +1,16 @@
+In order to create an Image using Alpine Lnux and running script: 
+
+- make sure you have docker installed on system and you have docker hub login which is used to host container images.
+- copy the Dockerfile and swapy.py script file to local system.
+- run the following commands
+	- docker build -t swapi . (which will create docker image)
+	- docker images (which list docker images)
+	- docker run -it --rm swapi (which start docker container and execute script)
+	- docker tag <Image ID> yourdockerhubid/yourdockerhubrepo:containerTag (assign tag to the container)
+	- docker push yourdockerhubid/yourdockerhubrepo
+
+
+I have performed all the above steps and created a container where you can pull and execute from my docker hub
+	- make sure you have docker installed on system and running.
+	- docker pull kirankumaryarlagadda/swapi
+	- docker run -it --rm kirankumaryarlagadda/swapi (it will start executing script from scenario1 and provide results based on user choise)
