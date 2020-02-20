@@ -1,0 +1,39 @@
+Steps to deploy docker container to local minikube:
+
+1. Install minikube
+brew install minikube
+
+2. update brew and minikube if using mac
+brew update
+brew upgrade minikube
+
+3. I have used vmware as my HV for minikube
+brew install docker-machine-driver-vmware
+
+4. To start minikube
+minikube start --vm-driver=vmware
+
+5. To open local minikube dashboard
+minikube dashboard
+
+6. Now in order to template out steps to deploy apps to kubernetes we use helm charts as automation
+helm create mychart
+above command will generate a tree sctructure which consists of Chart.yaml, charts, templates, values.yaml
+
+7. We are creating a deployment with pod on minikube dashboard 
+helm install mychart --generate-name
+ - this command generate below output
+
+ NAME: mychart-1582172686
+LAST DEPLOYED: Wed Feb 19 21:24:46 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=mychart,app.kubernetes.io/instance=mychart-1582172686" -o jsonpath="{.items[0].metadata.name}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl --namespace default port-forward $POD_NAME 8080:80
+
+8. With below command we can see our pod which we created using helm.
+kubectl get pods
